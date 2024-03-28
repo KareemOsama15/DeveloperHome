@@ -1,0 +1,59 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-primary ">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand text-light" href="{% url 'home' %}">DeveloperHome</a> -->
+        <a class="navbar-brand fs-4" href="{% url 'startedPage' %}">
+            <img src="{% static 'images/coding.png' %}" alt="Logo" width="30" class="d-inline-block align-text-top">
+            DeveloperHome
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{% url 'home' %}">
+                        <img src="{% static 'images/home.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{% url 'about' %}">
+                        <img src="{% static 'images/info.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
+                        About Us
+                    </a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="{% url 'home' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'images/sections.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
+                        Sections
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Articles</a></li>
+                      <li><a class="dropdown-item" href="#">Resources</a></li>
+                      <li><a class="dropdown-item" href="#">Questions</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'images/sections.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
+                        Sections
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Articles</a></li>
+                        <li><a class="dropdown-item" href="#">Resources</a></li>
+                        <li><a class="dropdown-item" href="#">Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item mr-1">
+                    <a class="nav-link text-light" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item ml-1">
+                    <a class="nav-link text-light" href="{% url 'register' %}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
