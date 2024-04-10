@@ -1,0 +1,35 @@
+Note: I didn't deployed the project yet and still needed to handle and add some parts to it, because of that I did't publish the blog post on social and prefered to finish from all parts of the project before it.
+
+DeveloperHome is a web platform designed to serve as a centralized hub for developers, providing resources, articles, and a community-driven Q&A section.
+The aim is to create a valuable resource for developers of all levels to enhance their skills and connect with others in the industry.
+
+I worked for this project alone, and worked on both sides frontend and backend.
+Timeline: Development started in January 2023 and is ongoing with planned feature additions and enhancements.
+Target Audience: The project was created for developers, coding enthusiasts, and tech learners who seek a platform to access educational content, share knowledge, and engage with a like-minded community.
+
+project Story:
+The idea of DeveloperHome resonated with our team due to my shared passion for coding and technology.
+I've always believed in the power of accessible education and wanted to create a platform that makes learning and networking easier for developers like us.
+Having experienced the challenges of finding relevant resources in my own journey, I aimed to build a project that addresses these pain points and fosters a supportive developer community.
+
+Technologies Used:
+For the Frontend, I used bootstrap to ensure a lightweight and fast-loading experience.
+On the backend, I implemented Django with mysql for robust data management and security. The decision to avoid heavy frameworks allowed us to focus on optimizing performance and customizing features based on user feedback.
+
+Features Overview:
+Article Repository: Users can access a vast library of developer articles covering various topics such as programming languages, frameworks, and best practices.
+Resource Directory: A curated collection of coding resources including tutorials, courses, and tools to aid developers in their learning journey.
+Community Q&A: A forum-like section where users can ask questions, share knowledge, and engage in discussions with other developers.
+
+Technical Challenge:
+-Situation: 
+Implementing user authentication with Django's authentication system presented a complex challenge due to the need for robust and secure login functionality.
+-Task:
+The task was to integrate Django's built-in user authentication system to handle user registration, login, and session management efficiently.
+-Action:
+I researched Django's authentication documentation and best practices for user management.
+I implemented custom authentication views and templates to provide a seamless and secure login experience for users.
+Despite facing initial hurdles in setting up custom authentication logic, I leveraged online resources and consulted with experienced developers.
+-Result:
+After several iterations and debugging sessions, I successfully implemented Django's user authentication system, ensuring secure user login and session management.
+This enhanced the project's functionality and usability, providing a reliable authentication mechanism for users.
