@@ -1,8 +1,126 @@
 {% extends 'main.html' %}
 
 {% block content %}
-
-    <h1>Home</h1>
-
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Reload All Articles -->
+      {% for article in articles %}
+      <div class="card mt-2">
+        <div class="card-header d-flex justify-content-between">
+          <strong class="mt-2 text-success">@{{ article.author.username }}</strong>
+          {% if user == article.author %}
+          <form method="POST">
+            {% csrf_token %}
+            <!-- <button type="submit" class="btn btn-success" name="article-id" value="{{ article.id }}">Update</button> -->
+            <button type="submit" class="btn btn-danger" name="deleteArticle-id" value="{{ article.id }}">Delete</button>
+          </form>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <div class="bg-warning mb-3 mt-0 rounded text-center" style="height: 30px; width: 70px;">{{ article_type }}</div>
+          <a class="nav-link" href="{% url 'view-article' article.id %}">
+            <h5 class="card-title">{{ article.title }}</h5>
+          </a>
+          <a class="nav-link" href="{% url 'view-article' article.id %}">
+            <p>{{ article.content }}...Read More</p>
+          </a>
+          <!-- <p class="text-info mt-4 mb-0">{{ article.likes }} likes</p> -->
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center text-muted" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+          <div class="d-flex flex-row">
+            <!-- {% if user.is_authenticated %}
+            <form method="POST" action="">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary" style="height: 40px;">Like</button>
+            </form>
+            <div class="bg-light" style="height: 40px; width: 10px;"></div>
+            {% endif %} -->
+            <div class="bg-primary rounded ml-2">
+              <a class="nav-link text-light px-3 py-2" href="{% url 'view-article' article.id %}">Comments</a>
+            </div>
+          </div>
+          <small>{{ article.created_at }}</small>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- Reload All Resources -->
+      {% for resource in resources %}
+      <div class="card mt-2">
+        <div class="card-header d-flex justify-content-between">
+          <strong class="mt-2 text-success">@{{ resource.author.username }}</strong>
+          {% if user == resource.author %}
+          <form method="POST">
+            {% csrf_token %}
+            <!-- <button type="submit" class="btn btn-success" name="resource-id" value="{{ resource.id }}">Update</button> -->
+            <button type="submit" class="btn btn-danger" name="deleteResource-id" value="{{ resource.id }}">Delete</button>
+          </form>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <div class="bg-warning mb-3 mt-0 rounded text-center" style="height: 30px; width: 70px;">{{ resource_type }}</div>
+          <a class="nav-link" href="{% url 'view-resource' resource.id %}">
+            <h5 class="card-title">{{ resource.title }}</h5>
+          </a>
+          <!-- <p class="text-info mt-4 mb-0">{{ resource.likes }} likes</p> -->
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center text-muted" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+          <div class="d-flex flex-row">
+            <!-- {% if user.is_authenticated %}
+            <form method="POST" action="">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary" style="height: 40px;">Like</button>
+            </form>
+            <div class="bg-light" style="height: 40px; width: 10px;"></div>
+            {% endif %} -->
+            <div class="bg-primary rounded ml-2">
+              <a class="nav-link text-light px-3 py-2" href="{% url 'view-resource' resource.id %}">Comments</a>
+            </div>
+          </div>
+          <small>{{ resource.created_at }}</small>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- Reload All Questions -->
+      {% for question in questions %}
+      <div class="card mt-2">
+        <div class="card-header d-flex justify-content-between">
+          <strong class="mt-2 text-success">@{{ question.author.username }}</strong>
+          {% if user == question.author %}
+          <form method="POST">
+            {% csrf_token %}
+            <!-- <button type="submit" class="btn btn-success" name="question-id" value="{{ question.id }}">Update</button> -->
+            <button type="submit" class="btn btn-danger" name="deleteQuestion-id" value="{{ question.id }}">Delete</button>
+          </form>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <div class="bg-warning mb-3 mt-0 rounded text-center" style="height: 30px; width: 70px;">{{ question_type }}</div>
+          <a class="nav-link" href="{% url 'view-question' question.id %}">
+            <h5 class="card-title">{{ question.title }}</h5>
+          </a>
+          <a class="nav-link" href="{% url 'view-question' question.id %}">
+            <p>{{ question.content }}...Read More</p>
+          </a>
+          <!-- <p class="text-info mt-4 mb-0">{{ question.likes }} likes</p> -->
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center text-muted" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+          <div class="d-flex flex-row">
+            <!-- {% if user.is_authenticated %}
+            <form method="POST" action="">
+              <button type="submit" class="btn btn-primary" name="likeQuestion-id" value="{{ question.id }}" style="height: 40px;">Like</button>
+            </form>
+            <div class="bg-light" style="height: 40px; width: 10px;"></div>
+            {% endif %} -->
+            <div class="bg-primary rounded ml-2">
+                <a class="nav-link text-light px-3 py-2" href="{% url 'view-question' question.id %}">Comments</a>
+            </div>
+          </div> 
+          <small>{{ question.created_at }}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

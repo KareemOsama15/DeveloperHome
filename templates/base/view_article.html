@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <p class="mb-2 text-success text-center">@{{ article.author.username }}</p>
+                    <h3 class="text-primary text-center">{{ article.title }}</h3>
+                </div>
+                <div class="card-body">
+                    {% if article.image %}
+                    <img width="400" height="300" class="ml-5 d-flex justify-content-center" src="{{ article.image.url }}" alt="Article Image">
+                    {% endif %}
+                    <p>{{ article.content }}</p>
+                    <!-- <p>Likes: {{ article.likes }}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="bg-primary  justify-content-center" style="width: 400px; height:5px;"></div> -->
+<div class="container mt-1 mb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Comments</h4>
+                </div>
+                <div class="comment-widgets mb-2">
+                    <!-- Comment Row -->
+                    {% for comment in comments %}
+                    <div class="d-flex flex-row comment-row ml-3 border border-primary rounded">
+                        <div class="comment-text">
+                            <h6 class="font-medium mt-2">@{{ comment.user.username }}</h6>
+                            <span class="m-b-15 d-block">
+                                {{ comment.body }}
+                            </span>
+                            {% if user == comment.user %}
+                            <div class="comment-footer">
+                                <!-- <form method="POST" action="{% url 'view-article' article.id %}">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-danger btn-sm m-2">Delete</button>
+                                </form> -->
+                                <div class="bg-danger rounded ml-2">
+                                    <a class="nav-link text-light px-3 py-2" href="{% url 'view-article' article.id %}">Delete</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div> <!-- Comment Row -->
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                    {% if form %}
+                    <div class="form-group justify-content-center mb-3 mt-3">
+                        <!-- <textarea class="form-control"
+                                  id="{{ form.content.id_for_label }}"
+                                  name="{{ form.content.html_name }}"
+                                  placeholder="{{ form.content.label }}"
+                                  rows="3" {% if form.content.field.required %}required{% endif %}>
+                        </textarea> -->
+                        {{ form.as_p }}
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary" name="deleteArticle-id" value="{{ article.id }}">Publish</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                </div> <!-- Card -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}    

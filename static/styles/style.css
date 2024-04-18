@@ -1,24 +1,17 @@
-/* Login and Register start */
-
-.btn-color{
-background-color: #0e1c36;
-color: #fff;
-
+body{
+    background-color: aliceblue;
 }
 
-.profile-image-pic{
-height: 200px;
-width: 200px;
-object-fit: cover;
+/* style messages */
+.messages {
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
-
-
-
-.cardbody-color{
-background-color: #ebf2fa;
+.messages li {
+    color: white;
+    background-color: #dc3545;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
-
-a{
-text-decoration: none;
-}
-/* Login and Register end */

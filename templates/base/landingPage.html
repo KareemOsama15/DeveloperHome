@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<section class="home-testimonial">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center testimonial-pos">
+            <div class="col-md-12 pt-4 d-flex justify-content-center">
+                <h3>Testimonials</h3>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+                <h2>Explore the Developers experience</h2>
+            </div>
+        </div>
+        <section class="home-testimonial-bottom">
+            <div class="container testimonial-inner">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this Section, Explore deep dives and tutorials in our Articles section - your key to staying ahead in tech, Discover the latest trends and techniques, Share you knowledge.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2">
+                                    <img class="tm-people" src="{% static 'images/article.png' %}" alt="">
+                                </div>
+                                <div class="link-name d-flex justify-content-center">Articles</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this Section, Access a wealth of resources designed to fuel your coding journey, Level up your skills with our carefully curated resources for every skill level.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2">
+                                    <img class="tm-people" src="{% static 'images/resource.png' %}" alt="">
+                                </div>
+                                <div class="link-name d-flex justify-content-center">Resources</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this Section, Got questions? Get answers from our community of passionate developers, Ask, learn, and collaborate in our interactive Questions forum - your voice matters.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2">
+                                    <img class="tm-people" src="{% static 'images/question.png' %}" alt="">
+                                </div>
+                                <div class="link-name d-flex justify-content-center">Questions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+</section>
+<div class="container mt-5 mb-5 rounded d-flex justify-content-center bg-primary" style="width: 200px; height: 30px;">
+    <a class="nav-link mt-1 text-light text-center" href="{% url 'home' %}">Get Started >></a>
+</div>
+{% endblock %}

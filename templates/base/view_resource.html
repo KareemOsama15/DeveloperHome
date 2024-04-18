@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <p class="mb-2 text-success text-center">@{{ resource.author.username }}</p>
+                    <h3 class="text-primary text-center">{{ resource.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <a class="ml-5" href="{{ resource.link }}">{{ resource.link }}</a>
+                    <!-- <p>Likes: {{ resource.likes }}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

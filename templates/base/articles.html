@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      {% for article in articles %}
+      <div class="card mt-2">
+        <div class="card-header d-flex justify-content-between">
+          <strong class="mt-2 text-success">@{{ article.author.username }}</strong>
+          {% if user == article.author %}
+          <form method="POST">
+            {% csrf_token %}
+            <!-- <button type="submit" class="btn btn-success" name="article-id" value="{{ article.id }}">Update</button> -->
+            <button type="submit" class="btn btn-danger" name="deleteArticle-id" value="{{ article.id }}">Delete</button>
+          </form>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <div class="bg-warning mb-3 mt-0 rounded text-center" style="height: 30px; width: 70px;">{{title}}</div>
+          <a class="nav-link" href="{% url 'view-article' article.id %}">
+            <h5 class="card-title">{{ article.title }}</h5>
+          </a>
+          <a class="nav-link" href="{% url 'view-article' article.id %}">
+            <p>{{ article.content }}...Read More</p>
+          </a>
+          <!-- <p class="text-info mt-4 mb-0">{{ article.likes }} likes</p> -->
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center text-muted" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+          <div class="d-flex flex-row">
+            <!-- {% if user.is_authenticated %}
+            <form method="POST">
+              {% csrf_token %}
+            <button type="submit" class="btn btn-primary" name="likeArticle-id" value="{{ article.id }}" style="height: 40px;">Like</button>
+            </form>
+            <div class="bg-light" style="height: 40px; width: 10px;"></div>
+            {% endif %} -->
+            <div class="bg-primary rounded ml-2">
+              <a class="nav-link text-light px-3 py-2" href="{% url 'view-article' article.id %}">Comments</a>
+            </div>
+          </div> 
+          <small>{{ article.created_at }}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

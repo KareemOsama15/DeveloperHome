@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-primary ">
     <div class="container-fluid">
         <!-- <a class="navbar-brand text-light" href="{% url 'home' %}">DeveloperHome</a> -->
-        <a class="navbar-brand fs-4" href="{% url 'startedPage' %}">
+        <a class="navbar-brand fs-4" href="{% url 'landingPage' %}">
             <img src="{% static 'images/coding.png' %}" alt="Logo" width="30" class="d-inline-block align-text-top">
             DeveloperHome
         </a>
@@ -23,29 +23,40 @@
                         About Us
                     </a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="{% url 'home' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{% static 'images/sections.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
-                        Sections
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Articles</a></li>
-                      <li><a class="dropdown-item" href="#">Resources</a></li>
-                      <li><a class="dropdown-item" href="#">Questions</a></li>
-                    </ul>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{% static 'images/sections.png' %}" alt="Logo" width="20" class="d-inline-block align-text-top">
                         Sections
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Articles</a></li>
-                        <li><a class="dropdown-item" href="#">Resources</a></li>
-                        <li><a class="dropdown-item" href="#">Questions</a></li>
+                        <li><a class="dropdown-item" href="{% url 'articles' %}">Articles</a></li>
+                        <li><a class="dropdown-item" href="{% url 'resources' %}">Resources</a></li>
+                        <li><a class="dropdown-item" href="{% url 'questions' %}">Questions</a></li>
                     </ul>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Add New
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'create-article' %}">Article</a></li>
+                        <li><a class="dropdown-item" href="{% url 'create-resource' %}">Resource</a></li>
+                        <li><a class="dropdown-item" href="{% url 'create-question' %}">Question</a></li>
+                    </ul>
+                </li>
+                {% endif %}
             </ul>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item ml-1">
+                    <span class="nav-link text-light">Logged in as {{ user.username }} | </span>
+                </li>
+                <li class="nav-item mr-1">
+                    <a class="nav-link text-light" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+            {% else %}
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item mr-1">
                     <a class="nav-link text-light" href="{% url 'login' %}">Login</a>
@@ -54,6 +65,7 @@
                     <a class="nav-link text-light" href="{% url 'register' %}">Register</a>
                 </li>
             </ul>
+            {% endif %}
         </div>
     </div>
 </nav>
