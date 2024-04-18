@@ -8,7 +8,7 @@ Welcome to the DeveloperHome website! This project aims to provide a platform fo
 ## Introduction
 
 **Deployed Site**: [DeveloperHome Website](https://KareemOsama.pythonanywhere.com)  
-**Author(s) LinkedIn**: [Kareem Saleh](https://www.linkedin.com/in/kareem-osama-9b2b31278/)
+**Author(s) LinkedIn**: [Kareem Osama](https://www.linkedin.com/in/kareem-osama-9b2b31278/)
 
 ---
 
